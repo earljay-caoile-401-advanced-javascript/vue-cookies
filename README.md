@@ -1,42 +1,62 @@
-# vue-cookies
+# JS Framework Comparative Analysis
 
-Lab 36 A for CF JS 401 Nights
+## Framework Name: Vue
 
-## Project setup
+### Research Conducted By: Henok Gebremedhn, Thomas T, Joel Watson, and Earl Jay Caoile
 
-```
-npm install
-```
+### Overall Score and Comments
 
-### Compiles and hot-reloads for development
+#### Score (Out of 10): 7
 
-```
-npm run serve
-```
+#### General Comments
 
-### Compiles and minifies for production
+Vue is a JS framework used on the front end. It is built to be lightweight so that users adopt the parts of it that they want. Vue at its core library focuses on the view layer, but it is also capable of running single page applications.
 
-```
-npm run build
-```
+#### Pros
 
-### Lints and fixes files
+- Size (lightweight)
+- Documentation (easy to read)
+- reusable components
+- support for TypeScript
 
-```
-npm run lint
-```
+#### Cons
 
-### Customize configuration
+- similar but not the same as React (cricket vs. baseball)
+- cannot weave JavaScript logic into "HTML" like you can with React
+- small community
 
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Ratings and Reviews
 
-/_
-const calculateCookiesHourly = function(min, max, average) {
-for (let i = 1; i < headers.length - 1; i++) {
-let cookis = Math.ceil(average _ getRandome(min, max));
-cookiesSoldEachHourArray.push(cookis);
-totalCookiesPerDay += cookis;
-allStoresTotal += totalCookiesPerDay;
-}
-};
-\*/
+Vue has apparently started taking off in popularity recently. See [this website](https://www.codeinwp.com/blog/angular-vs-vue-vs-react/) for comparisons.
+
+#### Documentation
+
+We thought that Vue was ok, but it's not as nice as React. This is also from the perspective of having learned React thoroughly first and only briefly dabbling in Vue
+
+#### Systems Requirements
+
+Here are a few core libraries:
+
+- [Vue Router for single page apps](https://router.vuejs.org/)
+- [Vuex - state management pattern library](https://vuex.vuejs.org/)
+- [Vue Server Renderer](https://ssr.vuejs.org/)
+
+#### Ramp-Up Projections
+
+It would take about two weeks to be productive. We also have high standards of what "productive" is.
+
+#### Community Support and Adoption levels
+
+As stated in the above article, Vue's popularity has been increasing lately, but there is still a small community. Also, it doesn't have the backing of a large commmunity like React has with Facebook.
+
+### Links and Resources
+
+- [Vue.js Website](https://vuejs.org/)
+- [Add rows to the table dynamically with the use of vue.js](https://stackoverflow.com/questions/52211682/add-rows-to-the-table-dynamically-with-the-use-of-vue-js)
+
+### Operating Instructions
+
+To run locally, enter the following in terminal:
+
+- `npm i`
+- `npm run serve`
