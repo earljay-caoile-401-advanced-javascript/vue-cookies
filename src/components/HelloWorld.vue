@@ -21,29 +21,73 @@ let getRandome = function(min, max) {
   return Math.ceil(Math.random() * (max - min + 1)) + min;
 };
 
+const cities = ['seattle', 'tokyo', 'dubai', 'paris', 'lima'];
+
+const getHourlySales = () => {
+  const res = [];
+
+  for (let i = 0; i < headers.length - 2; i++) {
+    res.push(getRandome(0, 100));
+  }
+
+  return res;
+};
+
+const allCitySales = [];
+
+for (let i = 0; i < cities.length; i++) {
+  const cityInfo = { id: i, cityName: cities[i], sales: getHourlySales() };
+  const reducer = (accumulator, currentValue) => accumulator + currentValue;
+  cityInfo.totalSales = cityInfo.sales.reduce(reducer);
+  allCitySales.push(cityInfo);
+}
+
+const allTotal = [];
+let grandTotal = 0;
+for (let i = 0; i < headers.length - 2; i++) {
+  let hourlySum = 0;
+
+  for (let j = 0; j < allCitySales.length; j++) {
+    const cityInfo = allCitySales[j];
+    hourlySum += cityInfo.sales[i];
+  }
+  grandTotal += hourlySum;
+  allTotal.push(hourlySum);
+}
+allTotal.push(grandTotal);
 export default {
   name: 'TheBasics',
   data: () => ({
-    users: ['seattle', 'tokyo', 'dubai', 'paris', 'lima'],
+    cities,
     headers,
     getRandome,
+    allCitySales,
+    allTotal,
   }),
 };
 </script>
 
 <template>
-  <v-table :data="users">
+  <v-table :data="cities">
     <thead slot="head">
-      <span v-for="item in headers" v-bind:key="item">
+      <fragment v-for="item in headers" v-bind:key="item">
         <th>{{ item }}</th>
-      </span>
+      </fragment>
     </thead>
 
     <tbody slot="body">
-      <tr v-for="row in users" :key="row.id">
-        <th>{{ row }}</th>
-
-        <td>{{ getRandome(0, 100) }}</td>
+      <tr v-for="cityInfo in allCitySales" v-bind:key="cityInfo.cityName">
+        <th>{{ cityInfo.cityName }}</th>
+        <fragment v-for="sale in cityInfo.sales" v-bind:key="sale">
+          <td>{{ sale }}</td>
+        </fragment>
+        <td>{{ cityInfo.totalSales }}</td>
+      </tr>
+      <tr>
+        <th>HourlyTotal</th>
+        <fragment v-for="subtotal in allTotal" v-bind:key="subtotal">
+          <td>{{ subtotal }}</td>
+        </fragment>
       </tr>
     </tbody>
   </v-table>
